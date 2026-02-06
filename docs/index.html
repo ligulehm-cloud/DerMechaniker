@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Der Mechaniker</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css" />
+<link rel="manifest" href="/DerMechaniker/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/DerMechaniker/registerSW.js"></script></head>
+<body>
+  <h1>Der Mechaniker</h1>
+
+  <!-- 🧮 Drehmoment -->
+  <section id="torque-section">
+    <h2>Drehmomentberechnung</h2>
+
+    <label>Schraubengröße:
+      <select id="screwSize">
+        <option value="M5">M5</option>
+        <option value="M6">M6</option>
+        <option value="M8">M8</option>
+        <option value="M10">M10</option>
+      </select>
+    </label>
+
+    <label>Material:
+      <select id="material">
+        <option value="8.8">8.8</option>
+        <option value="10.9">10.9</option>
+        <option value="12.9">12.9</option>
+      </select>
+    </label>
+
+    <label>Schmierung:
+      <select id="lubrication">
+        <option value="trocken">Trocken</option>
+        <option value="geschmiert">Geschmiert</option>
+      </select>
+    </label>
+
+    <button>Berechnen</button>
+    <p>Ergebnis:</p>
+  </section>
+
+  <!-- 🔩 Gewinderechner -->
+  <section id="thread-section">
+    <h2>Gewinderechner</h2>
+
+    <label>Gewindenorm:
+      <select>
+        <option value="M">Metrisch (M)</option>
+        <option value="G">G (Rohrgewinde)</option>
+        <option value="UNC">UNC</option>
+      </select>
+    </label>
+
+    <label>Nenndurchmesser [mm]:
+      <input type="number" placeholder="z. B. 10" />
+    </label>
+
+    <label>Steigung [mm]:
+      <input type="number" placeholder="z. B. 1.5" />
+    </label>
+
+    <button>Berechnen</button>
+    <p>Ergebnis:</p>
+  </section>
+
+  <!-- ⚙️ Toleranzfelder -->
+  <section id="tolerance-section">
+    <h2>Toleranzfeldrechner</h2>
+
+    <label>Nenndurchmesser [mm]:
+      <input type="number" placeholder="z. B. 25" />
+    </label>
+
+    <label>Toleranzfeld:
+      <input type="text" placeholder="z. B. H7" />
+    </label>
+
+    <button>Berechnen</button>
+    <p>Ergebnis:</p>
+  </section>
+
+  <!-- 📐 Drehzahlberechnung -->
+  <section id="speed-section">
+    <h2>Drehzahlrechner</h2>
+
+    <label>Schnittgeschwindigkeit [m/min]:
+      <input type="number" placeholder="z. B. 120" />
+    </label>
+
+    <label>Werkstückdurchmesser [mm]:
+      <input type="number" placeholder="z. B. 30" />
+    </label>
+
+    <button>Berechnen</button>
+    <p>Ergebnis:</p>
+  </section>
+
+  <!-- 🧮 Formelauswahl -->
+  <section id="formula-section">
+    <h2>Formelauswahl</h2>
+
+    <label>Formel wählen:
+      <select>
+        <option value="power">P = U × I</option>
+        <option value="ohm">U = R × I</option>
+        <option value="speed">v = s / t</option>
+      </select>
+    </label>
+
+    <button>Anzeigen</button>
+    <p>Formel:</p>
+  </section>
+
+  <!-- Optionaler Service-Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").then(() =>
+        console.log("Service Worker registriert")
+      );
+    }
+  </script>
+</body>
+</html>
